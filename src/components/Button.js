@@ -9,3 +9,11 @@ export const Button = ( {color, text}) => {
 	)
 
 }
+Button.defaultProps = {
+	color: 'steelBlue',
+
+}
+Button.PropTypes = {
+	text: PropTypes.string,
+	color: PropTypes.string,
+}
