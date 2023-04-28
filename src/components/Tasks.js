@@ -1,28 +1,7 @@
 import React, { useState } from 'react'
 
 
- export const Tasks = () => {
-	const [tasks, setTasks] = useState([
-	{
-		id:1,
-		text: 'doctors',
-		day: '10.05.15',
-		reminder: true,
-	},
-	{
-		id:2,
-		text: 'meeting',
-		day: '10.05.15',
-		reminder: true,
-	},
-	{
-		id:3,
-		text: 'food shopping',
-		day: '10.05.15',
-		reminder: true,
-	}
-
-	])
+ export const Tasks = ({tasks}) => {
 
 	return (
 		<div>
