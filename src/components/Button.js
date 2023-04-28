@@ -13,7 +13,7 @@ Button.defaultProps = {
 	color: 'steelBlue',
 
 }
-Button.PropTypes = {
+Button.propTypes = {
 	text: PropTypes.string,
 	color: PropTypes.string,
 	onClick: PropTypes.func,
