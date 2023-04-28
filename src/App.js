@@ -29,10 +29,15 @@ class App extends Component {
     };
   }
   render() {
+
+    const deleteTask = (id) => {
+    }
+
+
     return (
       <div className="container">
         <Header />
-        <Tasks tasks={this.state.tasks} />
+        <Tasks tasks={this.state.tasks} onDelete={deleteTask} />
       </div>
     );
   }
