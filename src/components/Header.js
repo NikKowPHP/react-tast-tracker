@@ -10,7 +10,6 @@ export const Header = ({ title }) => {
 		<header className='header'>
 			<h1 >{title}</h1>
 			<Button color='red' text='Add' onClick={onClick} />
-			<Button color='green' text='Hello 1' />
 		</header>
 	)
 
