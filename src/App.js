@@ -2,6 +2,7 @@ import { useState } from "react";
 import React, { Component } from "react";
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
+import { AddTask } from "./components/AddTask";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -47,6 +48,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
+        <AddTask />
         { this.state.tasks.length > 0 ? <Tasks tasks={this.state.tasks} onDelete={deleteTask} onToggle={toggleReminder} />: 'No Tasks to show'}
       </div>
     );
