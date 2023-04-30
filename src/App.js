@@ -26,11 +26,15 @@ class App extends Component {
           reminder: true,
         },
       ],
+      setTasks: (tasks) => {
+        this.setState({ tasks });
+      }
     };
   }
   render() {
 
     const deleteTask = (id) => {
+      this.state.setTasks(this.state.tasks.filter((task) => task.id !== id));
     }
 
 
