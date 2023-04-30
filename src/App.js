@@ -33,15 +33,21 @@ class App extends Component {
   }
   render() {
 
+    // Delete Task
+
     const deleteTask = (id) => {
       this.state.setTasks(this.state.tasks.filter((task) => task.id !== id));
     }
 
+    // Toggle Reminder
+    const toggleReminder = (id) => {
+      this.state.setTasks(this.state.tasks.map((task)=> task.id === id ? {...task, reminder: !task.reminder} : task))
+    }
 
     return (
       <div className="container">
         <Header />
-        { this.state.tasks.length > 0 ? <Tasks tasks={this.state.tasks} onDelete={deleteTask} />: 'No Tasks to show'}
+        { this.state.tasks.length > 0 ? <Tasks tasks={this.state.tasks} onDelete={deleteTask} onToggle={toggleReminder} />: 'No Tasks to show'}
       </div>
     );
   }
