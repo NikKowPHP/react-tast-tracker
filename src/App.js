@@ -41,7 +41,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header />
-        <Tasks tasks={this.state.tasks} onDelete={deleteTask} />
+        { this.state.tasks.length > 0 ? <Tasks tasks={this.state.tasks} onDelete={deleteTask} />: 'No Tasks to show'}
       </div>
     );
   }
