@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
       tasks: [
         {
           id: 1,
@@ -29,10 +30,22 @@ class App extends Component {
       ],
       setTasks: (tasks) => {
         this.setState({ tasks });
-      }
+      },
+
+      showAddTask:false,
+
     };
   }
   render() {
+
+
+
+    // Add task
+    const addTask = (task) => {
+      const id = Math.floor(Math.random() * 10000 ) + 1;
+      const newTask = { id, ...task};
+      this.state.setTasks([...this.state.tasks, newTask]);
+    }
 
     // Delete Task
 
@@ -44,11 +57,19 @@ class App extends Component {
     const toggleReminder = (id) => {
       this.state.setTasks(this.state.tasks.map((task)=> task.id === id ? {...task, reminder: !task.reminder} : task))
     }
+    // Toggle new task form
+    const toggleNewTask = () => {
+      this.setState((prevState) => ({
+
+        showAddTask: !prevState.showAddTask,
+      }));
+
+    };
 
     return (
       <div className="container">
-        <Header />
-        <AddTask />
+        <Header onShowForm={toggleNewTask} />
+        { this.state.showAddTask &&  <AddTask onAdd={addTask} />}
         { this.state.tasks.length > 0 ? <Tasks tasks={this.state.tasks} onDelete={deleteTask} onToggle={toggleReminder} />: 'No Tasks to show'}
       </div>
     );
