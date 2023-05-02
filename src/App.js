@@ -68,7 +68,7 @@ class App extends Component {
 
     return (
       <div className="container">
-        <Header onShowForm={toggleNewTask} />
+        <Header onShowForm={toggleNewTask} showAdd={this.state.showAddTask} />
         { this.state.showAddTask &&  <AddTask onAdd={addTask} />}
         { this.state.tasks.length > 0 ? <Tasks tasks={this.state.tasks} onDelete={deleteTask} onToggle={toggleReminder} />: 'No Tasks to show'}
       </div>
